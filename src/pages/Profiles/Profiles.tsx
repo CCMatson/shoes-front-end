@@ -2,8 +2,8 @@
 import { Profile } from '../../types/models'
 
 
-// // components
-// import ProfileCard from '../../components/ProfileCard/ProfileCard'
+// components
+import ProfileCard from '../../components/ProfileCard/ProfileCard'
 
 interface ProfilesProps {
   profiles: Profile[];
@@ -19,9 +19,7 @@ const Profiles = (props: ProfilesProps): JSX.Element => {
     <main className='list'>
       <h1>Hello, here is the list of  profiles</h1>
       {profiles.map((profile: Profile) =>
-      <p key={profile.id}>{profile.name}</p>
-
-        // <ProfileCard profile={profile} key={profile.id} handleVote={props.handleVote} />
+        <ProfileCard profile={profile} key={profile.id}  />
       )}
     </main>
   )
