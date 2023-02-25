@@ -13,8 +13,10 @@ const ShoesList = (props: ShoeProps) => {
 
   return (
     <>
-    <section>
-      <h2>test messages</h2>    
+    <section>  
+      <h1>There is a margin here</h1>
+      <h1>The nav bar is taking up this space</h1>
+      <h1>This is a list of all the shoes</h1>
       <ShoeCard shoes={shoes}/>
     </section>
     </>

@@ -1,5 +1,10 @@
 /* ---------==== custom forms ====--------- */
 
+export interface NewShoeFormData {
+  style: string;
+  photo: string;
+  info: string;
+}
 
 
 /* ---------===== auth forms =====--------- */

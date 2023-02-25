@@ -9,6 +9,7 @@ import Landing from './pages/Landing/Landing'
 import Profiles from './pages/Profiles/Profiles'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
 import ShoesList from './components/Shoes/ShoesList'
+import NewShoe from './pages/NewShoes/NewShoes'
 
 // components
 import NavBar from './components/NavBar/NavBar'
@@ -23,7 +24,8 @@ import * as shoeService from './services/shoeService'
 import './App.css'
 
 // types
-import { User , Profile } from './types/models'
+import { User , Profile , Shoe } from './types/models'
+import { NewShoeFormData } from './types/forms'
 
 function App(): JSX.Element {
   const navigate = useNavigate()
@@ -57,6 +59,12 @@ function App(): JSX.Element {
     if (user) fetchShoes()
   }, [user])
 
+  const handleAddShoe = async (shoeData: NewShoeFormData): Promise<void> => {
+    const newShoe = await shoeService.create(shoeData);
+    setShoes([newShoe, ...shoes]);
+    navigate('/profiles');
+  }
+
   const handleLogout = (): void => {
     authService.logout()
     setUser(null)
@@ -73,6 +81,7 @@ function App(): JSX.Element {
       <Routes>
         <Route path="/" element={<Landing user={user} />} />
         <Route path="/shoes" element={<ShoesList shoes={shoes}/>}/>
+        <Route path="/shoes/new" element={<NewShoe handleAddShoe={handleAddShoe}/>}/>
         <Route
           path="/signup"
           element={<Signup handleAuthEvt={handleAuthEvt} />}

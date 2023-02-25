@@ -3,7 +3,7 @@ import defaultPic from '../../assets/icons/profile.png'
 
 // types
 import { Profile } from '../../types/models'
-import ShoesList from '../Shoes/ShoesList';
+// import ShoesList from '../Shoes/ShoesList';
 
 interface ProfileCardProps {
   profile: Profile;
