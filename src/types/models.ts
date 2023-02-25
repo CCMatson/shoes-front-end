@@ -11,7 +11,6 @@ export interface Profile {
   createdAt: string;
   updatedAt: string;
   //not sure about this
-  shoeList: Shoe[];
 }
 
 export interface User {

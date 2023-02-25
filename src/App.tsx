@@ -17,6 +17,7 @@ import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
 // services
 import * as authService from './services/authService'
 import * as profileService from './services/profileService'
+import * as shoeService from './services/shoeService'
 
 // stylesheets
 import './App.css'
@@ -31,7 +32,10 @@ function App(): JSX.Element {
 
   const [profiles, setProfiles] = useState<Profile[]>([])
 
+  const [shoes, setShoes] = useState<Shoe[]>([])
+
   useEffect((): void => {
+
     const fetchProfiles = async (): Promise<void> => {
       try {
         const profileData: Profile[] = await profileService.getAllProfiles()
@@ -41,6 +45,16 @@ function App(): JSX.Element {
       }
     }
     user ? fetchProfiles() : setProfiles([])
+
+    const fetchShoes = async (): Promise<void> => {
+      try {
+        const shoeData: Shoe[] = await shoeService.index()
+        setShoes(shoeData) 
+      } catch (error) {
+        console.log(error)
+      }
+    }
+    if (user) fetchShoes()
   }, [user])
 
   const handleLogout = (): void => {
@@ -58,6 +72,7 @@ function App(): JSX.Element {
       <NavBar user={user} handleLogout={handleLogout} />
       <Routes>
         <Route path="/" element={<Landing user={user} />} />
+        <Route path="/shoes" element={<ShoesList shoes={shoes}/>}/>
         <Route
           path="/signup"
           element={<Signup handleAuthEvt={handleAuthEvt} />}
@@ -70,7 +85,7 @@ function App(): JSX.Element {
           path="/profiles"
           element={
             <ProtectedRoute user={user}>
-              <Profiles  profiles={profiles}/>
+              <Profiles  profiles={profiles} />
             </ProtectedRoute>
           }
         />

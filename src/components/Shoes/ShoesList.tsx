@@ -8,6 +8,7 @@ interface ShoeProps {
 const ShoesList = (props: ShoeProps): JSX.Element => {
 	const { shoes } = props
   console.log('shoesList props', props)
+  console.log('shoes', shoes)
 
   return (
     <section>
