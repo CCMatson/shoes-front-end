@@ -33,13 +33,13 @@ const create = async (shoeData: NewShoeFormData) => {
   }
   }
 
-  const deleteShoe = async (id: number): Promise<Shoe> => {
+  const deleteShoe = async (id: number): Promise<Shoe | undefined> => {
     try {
       const res = await fetch (`${BASE_URL}/${id}`, {
         method: 'DELETE',
         headers: { 'Authorization': `Bearer ${tokenService.getToken()}` }
       })
-      return res.json()
+      return res.json();
     } catch (error) {
       console.log(error)
     }
