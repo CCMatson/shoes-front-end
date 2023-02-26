@@ -1,0 +1,33 @@
+.container {
+  border: black 2px solid;
+  background-color: #edede9;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+height: 30%;
+
+  /* position: relative; */
+}
+
+
+.shoeCard button {
+  background-color: black;
+  color: white;
+}
+
+.shoeCard button {
+  background-color: black;
+  color: white;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: space-around;
+}
+
+.shoeText {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

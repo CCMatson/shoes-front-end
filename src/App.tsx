@@ -1,5 +1,5 @@
 // npm modules 
-import { useState , useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { Routes, Route, useNavigate } from 'react-router-dom'
 
 // page components
@@ -10,6 +10,7 @@ import Profiles from './pages/Profiles/Profiles'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
 import ShoesList from './components/Shoes/ShoesList'
 import NewShoe from './pages/NewShoes/NewShoes'
+import EditShoeForm from './components/EditShoe/EditShoeForm'
 
 // components
 import NavBar from './components/NavBar/NavBar'
@@ -24,12 +25,12 @@ import * as shoeService from './services/shoeService'
 import './App.css'
 
 // types
-import { User , Profile , Shoe } from './types/models'
+import { User, Profile, Shoe } from './types/models'
 import { NewShoeFormData } from './types/forms'
 
 function App(): JSX.Element {
   const navigate = useNavigate()
-  
+
   const [user, setUser] = useState<User | null>(authService.getUser())
 
   const [profiles, setProfiles] = useState<Profile[]>([])
@@ -51,7 +52,7 @@ function App(): JSX.Element {
     const fetchShoes = async (): Promise<void> => {
       try {
         const shoeData: Shoe[] = await shoeService.index()
-        setShoes(shoeData) 
+        setShoes(shoeData)
       } catch (error) {
         console.log(error)
       }
@@ -59,11 +60,17 @@ function App(): JSX.Element {
     if (user) fetchShoes()
   }, [user])
 
-  const handleAddShoe = async (shoeData: NewShoeFormData , photo: File | null): Promise<void> => {
+  const handleAddShoe = async (shoeData: NewShoeFormData, photo: File | null): Promise<void> => {
     const newShoe = await shoeService.create(shoeData)
     const newShoePhoto = await shoeService.addPicture(newShoe, photo)
     setShoes([newShoe, ...shoes])
-    navigate('/profiles');
+    navigate('/profiles')
+  }
+
+  const handleUpdateShoe = async (shoeData: Shoe) => {
+    const updateShoe = await shoeService.update(shoeData)
+    setShoes(shoes.filter(shoe => shoeData.id === shoeData.id ? updateShoe : shoe))
+    navigate('/profiles')
   }
 
   const handleDeleteShoe = async (id: number): Promise<void> => {
@@ -86,31 +93,35 @@ function App(): JSX.Element {
     <>
       <NavBar user={user} handleLogout={handleLogout} />
       <Routes>
-        <Route 
-        path="/" 
-        element={<Landing user={user} />} 
+        <Route
+          path="/"
+          element={<Landing user={user} />}
         />
         {/* <Route 
         path="/shoes" 
         element={<ShoesList shoes={shoes} user={user}/>}
         /> */}
-        <Route path="/shoes/new" 
-        element={
-          <ProtectedRoute user={user}>
-            {<NewShoe handleAddShoe={handleAddShoe} user={user}/>}
-        </ProtectedRoute>
-        }
+        <Route path="/shoes/new"
+          element={
+            <ProtectedRoute user={user}>
+              {<NewShoe handleAddShoe={handleAddShoe} user={user} />}
+            </ProtectedRoute>
+          }
         />
-      <Route path="/shoes" 
-        element={
-          <ProtectedRoute user={user}>
-          element={<ShoesList shoes={shoes} user={user} handleDeleteShoe={handleDeleteShoe}/>}
-        </ProtectedRoute>
-        }
+        <Route path="/shoes"
+          element={
+            <ProtectedRoute user={user}>
+              element={<ShoesList shoes={shoes} user={user} handleDeleteShoe={handleDeleteShoe} />}
+            </ProtectedRoute>
+          }
         />
-
-
-
+        <Route path='/shoes/:id/edit'
+          element={
+            <ProtectedRoute user={user}>
+              element={<EditShoeForm user={user} handleUpdateShoe={handleUpdateShoe} />}
+            </ProtectedRoute>
+          }
+        />
         <Route
           path="/signup"
           element={<Signup handleAuthEvt={handleAuthEvt} />}
@@ -123,7 +134,7 @@ function App(): JSX.Element {
           path="/profiles"
           element={
             <ProtectedRoute user={user}>
-              <Profiles  profiles={profiles} />
+              <Profiles profiles={profiles} />
             </ProtectedRoute>
           }
         />

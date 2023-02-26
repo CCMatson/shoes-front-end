@@ -23,6 +23,7 @@ export interface User {
 }
 
 export interface Shoe {
+  id: number;
   style: string;
   profileId: number;
   photo: string;

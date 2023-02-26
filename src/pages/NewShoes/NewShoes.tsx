@@ -1,6 +1,7 @@
 import  React , { useState } from "react"
 import { NewShoeFormData } from "../../types/forms"
 import { User } from "../../types/models"
+import styles from './NewShoes.module.css'
 // import { Shoe } from '../../types/models'
 
 // interface NewShoeProps {
@@ -52,9 +53,9 @@ const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
 }
 
 return (
-  <main className="newShoe">
-    <h1>Add a shoe with this form: </h1>
-    <form autoComplete="off" onSubmit={handleSubmit} >
+  <main className={styles.container}>
+    <h1 className={styles.h1}>Add a shoe with this form: </h1>
+    <form autoComplete="off" onSubmit={handleSubmit} className={styles.form}>
       <label htmlFor="style-input">Style</label>
       <input
           onChange={handleChange}

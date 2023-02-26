@@ -45,11 +45,21 @@ const create = async (shoeData: NewShoeFormData) => {
     }
   }
 
-  // const update = async (shoeData: Shoe ) : Promise<Shoe> => {
-  //   try{
-  //     const res = await fetch(`${BASE_URL}/${shoeData.id}`, {
-  //   }
-  // }
+  const update = async (shoeData: Shoe) : Promise<Shoe> => {
+    try{
+      const res = await fetch(`${BASE_URL}/${shoeData.id}`, {
+          method: 'PUT',
+            headers: { 'Authorization': `Bearer ${tokenService.getToken()}`,
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(shoeData)
+        })
+        return res.json()
+      } catch (error) {
+        throw error
+      }
+    }
+  
 
   const addPicture = async (shoeData: Shoe, photo: File | null) => {
     if (photo) {
@@ -77,4 +87,4 @@ const create = async (shoeData: NewShoeFormData) => {
     return await res.json()
   }
 
-export { index , create , addPicture , deleteShoe as delete, }
+export { index , create , addPicture ,update, deleteShoe as delete, }
