@@ -26,7 +26,7 @@ import './App.css'
 
 // types
 import { User, Profile, Shoe } from './types/models'
-import { NewShoeFormData } from './types/forms'
+import { EditShoeFormData, NewShoeFormData } from './types/forms'
 
 function App(): JSX.Element {
   const navigate = useNavigate()
@@ -48,7 +48,9 @@ function App(): JSX.Element {
       }
     }
     user ? fetchProfiles() : setProfiles([])
+  }, [user])
 
+  useEffect((): void => {
     const fetchShoes = async (): Promise<void> => {
       try {
         const shoeData: Shoe[] = await shoeService.index()
@@ -57,8 +59,9 @@ function App(): JSX.Element {
         console.log(error)
       }
     }
-    if (user) fetchShoes()
-  }, [user])
+    // if (user) fetchShoes()
+    fetchShoes()
+  }, [])
 
   const handleAddShoe = async (shoeData: NewShoeFormData, photo: File | null): Promise<void> => {
     const newShoe = await shoeService.create(shoeData)
@@ -67,9 +70,18 @@ function App(): JSX.Element {
     navigate('/profiles')
   }
 
-  const handleUpdateShoe = async (shoeData: Shoe) => {
+  const handleUpdateShoe = async (shoeData: EditShoeFormData) => {
     const updateShoe = await shoeService.update(shoeData)
-    setShoes(shoes.filter(shoe => shoeData.id === shoeData.id ? updateShoe : shoe))
+    // added today, with the TAs. They said this was a 'brute force' sloppy way to do it though.
+    const updatedAllShoesData = await shoeService.index()
+    setShoes(updatedAllShoesData)
+
+    //this might be a prefered way, but I couldn't get it to work : 
+
+    // const updatedShoeData = shoes.filter(shoe => shoe.id === shoeData.id ? updateShoe : shoe)
+    // setShoes(updatedShoeData)
+
+    // setShoes(shoes.filter(shoe => shoe.id === shoeData.id ? updateShoe : shoe))
     navigate('/profiles')
   }
 

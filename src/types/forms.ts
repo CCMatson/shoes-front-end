@@ -6,6 +6,11 @@ export interface NewShoeFormData {
   info: string;
 }
 
+export interface EditShoeFormData extends NewShoeFormData {
+  id: number
+}
+//make interface to extend newshoeform
+
 
 /* ---------===== auth forms =====--------- */
 

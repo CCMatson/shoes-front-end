@@ -7,12 +7,14 @@ import styles from './ShoeCard.module.css'
 interface ShoeCardProps{
   shoes: Shoe[],
   user: User | null | number;
-  handleDeleteShoe: (id: number) => void
+  handleDeleteShoe: (id: number) => void 
+  // id: number
 }
 
 
 const ShoeCard = (props : ShoeCardProps): JSX.Element => {
   const {shoes} = props
+  console.log('shoeCard props' , props)
   if(!shoes.length) return <p>Loading...</p>
   return (
     <>
@@ -21,9 +23,9 @@ const ShoeCard = (props : ShoeCardProps): JSX.Element => {
     <>
     <div className={styles.shoeCard} key={shoe.profileId}>
       <div className={styles.shoeText}>
-    <h4>Shoe Card:</h4>
-    <h4>Style: {shoe.style}</h4>
-    <h4>Info: {shoe.info}</h4>
+    <div>Shoe Card:</div>
+    <div>Style: {shoe.style}</div>
+    <div>Info: {shoe.info}</div>
     <img src={shoe.photo} alt="user photo" />
       </div>
 

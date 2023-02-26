@@ -2,17 +2,6 @@ import  React , { useState } from "react"
 import { NewShoeFormData } from "../../types/forms"
 import { User } from "../../types/models"
 import styles from './NewShoes.module.css'
-// import { Shoe } from '../../types/models'
-
-// interface NewShoeProps {
-//   handleAddShoe: (FormData: NewShoeFormData) => void
-// }
-
-// interface Shoe {
-//   style: string,
-//   photo: string,
-//   info: string
-// }
 
 interface NewShoeFormProps {
   user: User | null;
@@ -20,7 +9,7 @@ interface NewShoeFormProps {
 }
 
 const NewShoeForm = (props: NewShoeFormProps ): JSX.Element => {
-  // const NewShoe: React.FC<NewShoeProps> = (props) => {
+  console.log(props, 'newShoeFormProps')
     const { user, handleAddShoe} = props
     const [form, setForm] = useState<NewShoeFormData>({
       style: '',
@@ -31,8 +20,6 @@ const NewShoeForm = (props: NewShoeFormProps ): JSX.Element => {
     const [photoData, setPhotoData] = useState<object>({})
     
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-  //     const { name, value } = event.target
-  // setForm(prevState => ({ ...prevState, [name]: value}))
   setForm({ ...form, [event.target.name]: event.target.value })
 }
 
@@ -43,13 +30,6 @@ const handleChangePhoto = (event: React.ChangeEvent<HTMLInputElement>) => {
 const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
   event.preventDefault()
   handleAddShoe(form , photoData.photo)
-    // setForm({ ...form })
-
-  // setForm({
-  //   style: '',
-  //   photo: '',
-  //   info: '',
-  // })
 }
 
 return (

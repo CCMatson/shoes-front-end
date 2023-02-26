@@ -3,7 +3,7 @@ import * as tokenService from './tokenService'
 
 // types
 import { Shoe } from '../types/models'
-import { NewShoeFormData } from '../types/forms'
+import { EditShoeFormData, NewShoeFormData } from '../types/forms'
 
 const BASE_URL = `${import.meta.env.VITE_BACK_END_SERVER_URL}/api/shoes`
 
@@ -45,7 +45,8 @@ const create = async (shoeData: NewShoeFormData) => {
     }
   }
 
-  const update = async (shoeData: Shoe) : Promise<Shoe> => {
+  const update = async (shoeData: EditShoeFormData ) : Promise<Shoe> => {
+      console.log(shoeData)
     try{
       const res = await fetch(`${BASE_URL}/${shoeData.id}`, {
           method: 'PUT',

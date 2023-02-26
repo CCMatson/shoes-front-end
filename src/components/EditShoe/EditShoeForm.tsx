@@ -2,12 +2,13 @@ import { useState } from "react"
 import { useLocation } from "react-router";
 import styles from './EditShoe.module.css'
 
-// import { NewShoeFormData } from "../../types/forms";
+import { EditShoeFormData } from "../../types/forms";
 import { User , Shoe } from "../../types/models";
 
 interface EditShoeFormProps {
   user: User | null;
   handleUpdateShoe: (data: Shoe) => Promise<void>
+  
 }
 
 const EditShoeForm = (props: EditShoeFormProps) : JSX.Element => {
@@ -15,10 +16,12 @@ const EditShoeForm = (props: EditShoeFormProps) : JSX.Element => {
   console.log('state', state)
   console.log('props', props)
   // const {user, handleUpdateShoe} = props
-  const [form, setForm] = useState<Shoe>({
+  const [form, setForm] = useState<EditShoeFormData>({
     style: state.style,
     photo: state.photo,
     info: state.info,
+    // added this 
+    id: state.id,
   })
   
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -27,6 +30,7 @@ const EditShoeForm = (props: EditShoeFormProps) : JSX.Element => {
   
   const handleSubmit = (event: React.ChangeEvent<HTMLFormElement>) => {
     event.preventDefault()
+    console.log('form', form)
     props.handleUpdateShoe(form)
 
   }
