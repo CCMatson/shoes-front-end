@@ -18,6 +18,7 @@ const ProfileCard = (props: ProfileCardProps): JSX.Element => {
     <article>
       <img src={profilePic} alt={`${profile.name}'s avatar`} />
       <h1>{profile.name}</h1>   
+      
     </article>
   )
 }

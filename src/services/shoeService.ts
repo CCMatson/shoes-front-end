@@ -33,5 +33,48 @@ const create = async (shoeData: NewShoeFormData) => {
   }
   }
 
+  const deleteShoe = async (id: number): Promise<Shoe> => {
+    try {
+      const res = await fetch (`${BASE_URL}/${id}`, {
+        method: 'DELETE',
+        headers: { 'Authorization': `Bearer ${tokenService.getToken()}` }
+      })
+      return res.json()
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
-export { index , create }
+  // const update = async (shoeData: Shoe ) : Promise<Shoe> => {
+  //   try{
+  //     const res = await fetch(`${BASE_URL}/${shoeData.id}`, {
+  //   }
+  // }
+
+  const addPicture = async (shoeData: Shoe, photo: File | null) => {
+    if (photo) {
+      const photoData = new FormData()
+      photoData.append('photo', photo)
+      return await addPhoto(
+        photoData, 
+        shoeData.profileId
+      )
+    }
+    else {
+      return shoeData
+    }
+  }
+
+  // not working
+  async function addPhoto(photoData: FormData, id: number) {
+    const res = await fetch(`${BASE_URL}/${id}/add-photo`, {
+      method: 'PUT',
+      headers: {
+        'Authorization': `Bearer ${tokenService.getToken()}`
+      },
+      body: photoData
+    })
+    return await res.json()
+  }
+
+export { index , create , addPicture , deleteShoe as delete, }

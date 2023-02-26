@@ -59,10 +59,17 @@ function App(): JSX.Element {
     if (user) fetchShoes()
   }, [user])
 
-  const handleAddShoe = async (shoeData: NewShoeFormData): Promise<void> => {
-    const newShoe = await shoeService.create(shoeData);
-    setShoes([newShoe, ...shoes]);
+  const handleAddShoe = async (shoeData: NewShoeFormData , photo: File | null): Promise<void> => {
+    const newShoe = await shoeService.create(shoeData)
+    const newShoePhoto = await shoeService.addPicture(newShoe, photo)
+    setShoes([newShoe, ...shoes])
     navigate('/profiles');
+  }
+
+  const handleDeleteShoe = async (id: number): Promise<void> => {
+    const deletedShoe = await shoeService.delete(id)
+    setShoes(shoes.filter(shoe => shoe.id !== id))
+    navigate('/shoes')
   }
 
   const handleLogout = (): void => {
@@ -79,9 +86,31 @@ function App(): JSX.Element {
     <>
       <NavBar user={user} handleLogout={handleLogout} />
       <Routes>
-        <Route path="/" element={<Landing user={user} />} />
-        <Route path="/shoes" element={<ShoesList shoes={shoes}/>}/>
-        <Route path="/shoes/new" element={<NewShoe handleAddShoe={handleAddShoe}/>}/>
+        <Route 
+        path="/" 
+        element={<Landing user={user} />} 
+        />
+        {/* <Route 
+        path="/shoes" 
+        element={<ShoesList shoes={shoes} user={user}/>}
+        /> */}
+        <Route path="/shoes/new" 
+        element={
+          <ProtectedRoute user={user}>
+            {<NewShoe handleAddShoe={handleAddShoe} user={user}/>}
+        </ProtectedRoute>
+        }
+        />
+      <Route path="/shoes" 
+        element={
+          <ProtectedRoute user={user}>
+          element={<ShoesList shoes={shoes} user={user} handleDeleteShoe={handleDeleteShoe}/>}
+        </ProtectedRoute>
+        }
+        />
+
+
+
         <Route
           path="/signup"
           element={<Signup handleAuthEvt={handleAuthEvt} />}

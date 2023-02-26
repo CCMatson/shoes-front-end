@@ -1,6 +1,6 @@
 import  React , { useState } from "react"
 import { NewShoeFormData } from "../../types/forms"
-// import { User } from "../../types/models"
+import { User } from "../../types/models"
 // import { Shoe } from '../../types/models'
 
 // interface NewShoeProps {
@@ -14,17 +14,20 @@ import { NewShoeFormData } from "../../types/forms"
 // }
 
 interface NewShoeFormProps {
-  handleAddShoe: (form: NewShoeFormData ) => void
+  user: User | null;
+  handleAddShoe: (form: NewShoeFormData , photo: File | null ) => void
 }
 
 const NewShoeForm = (props: NewShoeFormProps ): JSX.Element => {
   // const NewShoe: React.FC<NewShoeProps> = (props) => {
-    const { handleAddShoe} = props
+    const { user, handleAddShoe} = props
     const [form, setForm] = useState<NewShoeFormData>({
       style: '',
       photo: '',
       info: '',
     })
+
+    const [photoData, setPhotoData] = useState<object>({})
     
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
   //     const { name, value } = event.target
@@ -32,9 +35,13 @@ const NewShoeForm = (props: NewShoeFormProps ): JSX.Element => {
   setForm({ ...form, [event.target.name]: event.target.value })
 }
 
+const handleChangePhoto = (event: React.ChangeEvent<HTMLInputElement>) => {
+  setPhotoData({ photo: event.target.value[0] })
+}
+
 const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
   event.preventDefault()
-  props.handleAddShoe(form)
+  handleAddShoe(form , photoData.photo)
     // setForm({ ...form })
 
   // setForm({
@@ -59,15 +66,14 @@ return (
         value={form.style}
       />
 
-      <label htmlFor="photo-input">Photo</label>
+      <label htmlFor="photo-upload">Photo</label>
       <input
-        onChange={handleChange}
-        required
-        type="text"
+        onChange={handleChangePhoto}
+        type="file"
         name="photo"
-        id="photo-input"
+        id="photo-upload"
         placeholder="Photo"
-        value={form.photo}
+        // value={form.photo}
       />
       <label htmlFor="info-input">Info</label>
       <input
