@@ -6,7 +6,7 @@ import styles from './ShoeCard.module.css'
 
 interface ShoeCardProps{
   shoes: Shoe[],
-  user: User | null | number;
+  user: User ;
   handleDeleteShoe: (id: number) => void 
   // id: number
 }
@@ -32,6 +32,7 @@ const ShoeCard = (props : ShoeCardProps): JSX.Element => {
       </div>
 
       {/* {shoe.profileId &&  */}
+
       {shoe.profileId === props.user.id && 
     <div className={styles.buttonContainer}>
       <Link to={`/shoes/${shoe.id}/edit`} state={shoe} ><button className={styles.button}>Edit Shoe</button></Link>
