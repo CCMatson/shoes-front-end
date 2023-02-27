@@ -63,17 +63,22 @@ function App(): JSX.Element {
   }, [])
 
 
-    // const handleAddShoe = async (shoeData: NewShoeFormData, PhotoFormData: PhotoFormData): Promise<void> => {
-      const handleAddShoe = async (shoeData: NewShoeFormData): Promise<void> => {
-        const newShoe = await shoeService.create(shoeData)
-        // if (PhotoFormData.photo) {
-        //   const photoData = new FormData ()
-        //   photoData.append('photo', PhotoFormData.photo)
-        //   await shoeService.addShoePhoto(photoData , id)
-        // }
-        // shoes.push(newShoe)
+    const handleAddShoe = async (shoeData: NewShoeFormData, PhotoFormData: PhotoFormData): Promise<void> => {
+      // const handleAddShoe = async (shoeData: NewShoeFormData): Promise<void> => {
+        try {
+          const newShoe = await shoeService.create(shoeData)
+          if (PhotoFormData.photo) {
+            const photoData = new FormData ()
+            photoData.append('photo', PhotoFormData.photo)
+            await shoeService.addShoePhoto(photoData , newShoe.id)
+          }
+          shoes.push(newShoe)
+          setShoes(shoes)
 
-        setShoes([newShoe,...shoes])
+        } catch (error) {
+          console.log(error)
+        }
+
         navigate('/profiles')
       }
 

@@ -29,7 +29,7 @@ const create = async (shoeData: NewShoeFormData) => {
       body: JSON.stringify(shoeData)
     
     })
-    return res.json()
+    return await res.json() as Shoe
   } catch (error) {
     throw error
   }
@@ -65,11 +65,12 @@ const create = async (shoeData: NewShoeFormData) => {
   
     async function addShoePhoto (
       photoData: FormData,
-      shoeData: NewShoeFormData,
+      // shoeData: NewShoeFormData,
       id : number,
-    ): Promise<string> {
-      try {
-        const res = await fetch(`${BASE_URL}/${shoeData.id}/add-photo`, {
+      ): Promise<string> {
+        try {
+        console.log(photoData, 'photoData')
+        const res = await fetch(`${BASE_URL}/${id}/add-photo`, {
           method: 'PUT',
           headers: {
             'Authorization': `Bearer ${tokenService.getToken}`

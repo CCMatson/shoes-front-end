@@ -5,29 +5,29 @@ import styles from './NewShoes.module.css'
 
 interface NewShoeFormProps {
   user: User | null;
-  handleAddShoe: (form: NewShoeFormData ) => void
-  // handleAddShoe: (form: NewShoeFormData, photoData: PhotoFormData ) => void
+  // handleAddShoe: (form: NewShoeFormData ) => void
+  handleAddShoe: (form: NewShoeFormData, photoData: PhotoFormData ) => void
 }
 
 const NewShoeForm = (props: NewShoeFormProps): JSX.Element => {
   const [form, setForm] = useState<NewShoeFormData>({
     style: '',
-    photo: '',
+    // photo: '',
     info: '',
     
   })
   
-  // const [photoData, setPhotoData] = useState<PhotoFormData>({photo: null})
+  const [photoData, setPhotoData] = useState<PhotoFormData>({photo: null})
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setForm({ ...form, [event.target.name]: event.target.value })
   }
 
-  // const handleChangePhoto = (event: React.ChangeEvent<HTMLInputElement>) => {
-  //   if( event.target.files ) {
-  //     setPhotoData({ photo: event.target.value[0] })
-  //   }
-  // }
+  const handleChangePhoto = (event: React.ChangeEvent<HTMLInputElement>) => {
+    if( event.target.files ) {
+      setPhotoData({ photo: event.target.files.item(0) })
+    }
+  }
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
@@ -65,7 +65,6 @@ const NewShoeForm = (props: NewShoeFormProps): JSX.Element => {
     </div>
 
         <label htmlFor="photo-upload">Photo</label>
-        <label></label>
         <input
           onChange={handleChangePhoto}
           type="file"
