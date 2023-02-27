@@ -17,7 +17,7 @@ const NavBar = (props: NavBarProps): JSX.Element => {
     <nav className={styles.nav}>
       {user ?
         <ul>
-          <li>Welcome, {user.name}</li>
+          <div>Welcome, {user.name}</div>
           <li><NavLink to="/shoes">Shoes</NavLink></li>
           <li><NavLink to="/shoes/new">New Shoes</NavLink></li>
           <li><NavLink to="/profiles">Profiles</NavLink></li>
