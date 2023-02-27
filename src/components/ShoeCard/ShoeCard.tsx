@@ -28,7 +28,7 @@ const ShoeCard = (props : ShoeCardProps): JSX.Element => {
     <div>Shoe Card:</div>
     <div>Style: {shoe.style}</div>
     <div>Info: {shoe.info}</div>
-    {/* <img src={shoe.photo} alt="user photo" /> */}
+    <img src={shoe.photo} alt="user photo" />
       </div>
 
       {/* {shoe.profileId &&  */}

@@ -63,6 +63,24 @@ const create = async (shoeData: NewShoeFormData) => {
       }
     }
   
+    async function addShoePhoto (
+      photoData: FormData,
+      shoeData: NewShoeFormData,
+      id : number,
+    ): Promise<string> {
+      try {
+        const res = await fetch(`${BASE_URL}/${shoeData.id}/add-photo`, {
+          method: 'PUT',
+          headers: {
+            'Authorization': `Bearer ${tokenService.getToken}`
+          },
+          body: photoData
+        })
+        return await res.json() as string
+      } catch (error) {
+  throw error
+    }
+    }
 
   // const addPicture = async (shoeData: Shoe, photo: File | null) => {
   //   console.log('shoeData' , shoeData)
@@ -92,4 +110,4 @@ const create = async (shoeData: NewShoeFormData) => {
   //   return await res.json()
   // }
 
-export { index , create , update, deleteShoe as delete }
+export { index , create , update, deleteShoe as delete , addShoePhoto}

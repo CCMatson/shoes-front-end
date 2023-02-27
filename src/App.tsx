@@ -26,7 +26,7 @@ import './App.css'
 
 // types
 import { User, Profile, Shoe } from './types/models'
-import { EditShoeFormData, NewShoeFormData } from './types/forms'
+import { EditShoeFormData, NewShoeFormData, PhotoFormData } from './types/forms'
 
 function App(): JSX.Element {
   const navigate = useNavigate()
@@ -59,25 +59,31 @@ function App(): JSX.Element {
         console.log(error)
       }
     }
-    // if (user) fetchShoes()
     fetchShoes()
   }, [])
 
-  // const handleAddShoe = async (shoeData: NewShoeFormData , photo: File | null): Promise<void> => {
-    const handleAddShoe = async (shoeData: NewShoeFormData): Promise<void> => {
-    const newShoe = await shoeService.create(shoeData)
-    // const newShoePhoto = await shoeService.addPicture(newShoe, photo)
-    setShoes([newShoe, ...shoes])
-    navigate('/profiles')
-  }
+
+    // const handleAddShoe = async (shoeData: NewShoeFormData, PhotoFormData: PhotoFormData): Promise<void> => {
+      const handleAddShoe = async (shoeData: NewShoeFormData): Promise<void> => {
+        const newShoe = await shoeService.create(shoeData)
+        // if (PhotoFormData.photo) {
+        //   const photoData = new FormData ()
+        //   photoData.append('photo', PhotoFormData.photo)
+        //   await shoeService.addShoePhoto(photoData , id)
+        // }
+        // shoes.push(newShoe)
+
+        setShoes([newShoe,...shoes])
+        navigate('/profiles')
+      }
 
   const handleUpdateShoe = async (shoeData: EditShoeFormData) => {
     const updateShoe = await shoeService.update(shoeData)
-    // added today, with the TAs. They said this was a 'brute force' sloppy way to do it though.
+    // added today, with the TAs. 
     const updatedAllShoesData = await shoeService.index()
     setShoes(updatedAllShoesData)
 
-    //this might be a prefered way, but I couldn't get it to work : 
+    //this might be a prefered way? but I couldn't get it to work : 
 
     // const updatedShoeData = shoes.filter(shoe => shoe.id === shoeData.id ? updateShoe : shoe)
     // setShoes(updatedShoeData)
