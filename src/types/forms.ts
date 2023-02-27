@@ -1,6 +1,7 @@
 /* ---------==== custom forms ====--------- */
 
 export interface NewShoeFormData {
+  // id: number;
   style: string;
   photo: string;
   info: string;
@@ -9,7 +10,6 @@ export interface NewShoeFormData {
 export interface EditShoeFormData extends NewShoeFormData {
   id: number
 }
-//make interface to extend newshoeform
 
 
 /* ---------===== auth forms =====--------- */

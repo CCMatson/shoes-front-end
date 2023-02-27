@@ -1,7 +1,7 @@
 // assets
 import defaultPic from '../../assets/icons/profile.png'
 import { Link } from 'react-router-dom';
-// import styles from './ProfileCard.module.css'
+import styles from './ProfileCard.module.css'
 
 // types
 import { Profile } from '../../types/models'
@@ -17,13 +17,12 @@ const ProfileCard = (props: ProfileCardProps): JSX.Element => {
   const profilePic = profile.photo ? profile.photo : defaultPic
 
   return (
- 
+
     <article>
       <img src={profilePic} alt={`${profile.name}'s avatar`} />
-      <h1 >{profile.name}</h1>
-      <Link to={`/shoes`} ><button >Shoe List</button></Link>
+      <h1 className={styles.h1}>{profile.name}</h1>
+      <Link to={`/shoes`} ><button className={styles.button}>Shoe List</button></Link>
     </article>
- 
 
   )
 }

@@ -19,13 +19,15 @@ async function index(): Promise<Shoe[]> {
 }
 
 const create = async (shoeData: NewShoeFormData) => {
+  console.log('create function shoeData', shoeData)
   try {
-    const res: Response = await fetch(BASE_URL, {
+    const res = await fetch(BASE_URL, {
       method: 'POST',
         headers: { 'Authorization': `Bearer ${tokenService.getToken()}`,
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(shoeData)
+    
     })
     return res.json()
   } catch (error) {
@@ -62,30 +64,32 @@ const create = async (shoeData: NewShoeFormData) => {
     }
   
 
-  const addPicture = async (shoeData: Shoe, photo: File | null) => {
-    if (photo) {
-      const photoData = new FormData()
-      photoData.append('photo', photo)
-      return await addPhoto(
-        photoData, 
-        shoeData.profileId
-      )
-    }
-    else {
-      return shoeData
-    }
-  }
+  // const addPicture = async (shoeData: Shoe, photo: File | null) => {
+  //   console.log('shoeData' , shoeData)
+  //   console.log('photo', photo)
+  //   if (photo) {
+  //     const photoData = new FormData()
+  //     photoData.append('photo', photo)
+  //     return await addPhoto(
+  //       photoData, 
+  //       shoeData.id
+  //     )
+  //   }
+  //   else {
+  //     return shoeData
+  //   }
+  // }
 
-  // not working
-  async function addPhoto(photoData: FormData, id: number) {
-    const res = await fetch(`${BASE_URL}/${id}/add-photo`, {
-      method: 'PUT',
-      headers: {
-        'Authorization': `Bearer ${tokenService.getToken()}`
-      },
-      body: photoData
-    })
-    return await res.json()
-  }
 
-export { index , create , addPicture ,update, deleteShoe as delete, }
+  // async function addPhoto(photoData: FormData, id: number) {
+  //   const res = await fetch(`${BASE_URL}/${id}/add-photo`, {
+  //     method: 'PUT',
+  //     headers: {
+  //       'Authorization': `Bearer ${tokenService.getToken()}`
+  //     },
+  //     body: photoData
+  //   })
+  //   return await res.json()
+  // }
+
+export { index , create , update, deleteShoe as delete }

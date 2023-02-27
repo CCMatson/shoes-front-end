@@ -63,9 +63,10 @@ function App(): JSX.Element {
     fetchShoes()
   }, [])
 
-  const handleAddShoe = async (shoeData: NewShoeFormData, photo: File | null): Promise<void> => {
+  // const handleAddShoe = async (shoeData: NewShoeFormData , photo: File | null): Promise<void> => {
+    const handleAddShoe = async (shoeData: NewShoeFormData): Promise<void> => {
     const newShoe = await shoeService.create(shoeData)
-    const newShoePhoto = await shoeService.addPicture(newShoe, photo)
+    // const newShoePhoto = await shoeService.addPicture(newShoe, photo)
     setShoes([newShoe, ...shoes])
     navigate('/profiles')
   }
@@ -80,7 +81,6 @@ function App(): JSX.Element {
 
     // const updatedShoeData = shoes.filter(shoe => shoe.id === shoeData.id ? updateShoe : shoe)
     // setShoes(updatedShoeData)
-
     // setShoes(shoes.filter(shoe => shoe.id === shoeData.id ? updateShoe : shoe))
     navigate('/profiles')
   }

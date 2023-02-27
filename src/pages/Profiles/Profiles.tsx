@@ -17,7 +17,7 @@ const Profiles = (props: ProfilesProps): JSX.Element => {
 
   return (
     <main className='list'>
-      <h1>Hello, here is the list of  profiles</h1>
+      <h1>Welcome to the shoe collection, this is the profiles page:</h1>
       {profiles.map((profile: Profile) =>
         <ProfileCard profile={profile} key={profile.id}  />
       )}

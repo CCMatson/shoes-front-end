@@ -1,6 +1,9 @@
+
+
 * {
   box-sizing: border-box;
 }
+
 
 html,
 body {
@@ -8,13 +11,17 @@ body {
   background-color: var(--background);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-family: sofia-pro, sans-serif;
   --primary: #F2B138;
   --secondary: #6574d0;
   --outline: #ffffff;
   --background: #f2f4f8;
   --border: rgb(220, 220, 220);
   --card-background: rgb(255, 255, 255);
+  font-family: 'Cormorant Garamond', serif;
+font-family: 'Proza Libre', sans-serif;
+background-color: #feeafa;
+padding-top: 24px;
+font-size: 24px;
 }
 
 main {
@@ -26,6 +33,7 @@ h1,
 h2,
 h3 {
   margin: 8px 0px 16px 0px;
+  font-family: 'Cormorant Garamond', serif;
 }
 
 h1 {
@@ -47,11 +55,15 @@ h4 {
   font-size: 16px;
   font-weight: 500;
   margin-bottom: 2px;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
 }
 
 h5 {
   font-size: 12px;
   font-weight: 500;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
 }
 
 p {
@@ -121,8 +133,9 @@ article::before {
   left: 0;
   z-index: 0;
   width: 100%;
-  height: 77px;
-  background-color: var(--secondary);
+  height: 77px;  
+  background-color: #dee2ff;
+
 }
 
 .list {
@@ -132,6 +145,7 @@ article::before {
   padding: 20px;
   grid-template-columns: repeat(1, 1fr);
 }
+
 
 @media only screen and (min-width: 900px) {
   .list {

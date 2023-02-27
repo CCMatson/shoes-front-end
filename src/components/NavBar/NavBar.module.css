@@ -1,0 +1,18 @@
+.nav {
+  background-color: #cbc0d3;
+  font-size: 24px;
+  font-family: 'Cormorant Garamond', serif; 
+}
+
+.nav ul {
+  display: flex;
+  justify-content: space-around;
+}
+
+.nav li:hover {
+  color: black;
+  background-color: #feeafa;
+  padding: 10px;
+  border-radius: 5px;
+
+}
