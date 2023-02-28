@@ -23,7 +23,11 @@
 
 .shoeCard div {
   display: flex;
-  
+  font-size: 24px; 
+}
+
+.shoeCard h1 {
+  font-size: 24px;
 }
 
 
