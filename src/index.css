@@ -118,6 +118,13 @@ article * {
   z-index: 0;
 }
 
+section div{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+
+
 section img {
   width: 30px;
   display: flex;

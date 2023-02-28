@@ -6,16 +6,13 @@ import styles from './NewShoes.module.css'
 interface NewShoeFormProps {
   user: User | null;
   handleAddShoe: (form: NewShoeFormData ) => void
-  // handleAddShoe: (form: NewShoeFormData, photo: File | null) => void
 }
 
 const NewShoeForm = (props: NewShoeFormProps): JSX.Element => {
-  // console.log(props, 'newShoeFormProps')
   const { user, handleAddShoe } = props
-  // const [photoData, setPhotoData] = useState<object>({})
   const [form, setForm] = useState<NewShoeFormData>({
     style: '',
-    photo: '',
+    // photo: '',
     info: '',
   })
 
@@ -24,14 +21,10 @@ const NewShoeForm = (props: NewShoeFormProps): JSX.Element => {
     setForm({ ...form, [event.target.name]: event.target.value })
   }
 
-  // const handleChangePhoto = (event: React.ChangeEvent<HTMLInputElement>) => {
-  //   setPhotoData({ photo: event.target.value[0] })
-  // }
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
     props.handleAddShoe(form)
-    // props.handleAddShoe(form , photoData.photo)
   }
 
   return (

@@ -8,21 +8,24 @@ import { User , Shoe } from "../../types/models";
 interface EditShoeFormProps {
   user: User | null;
   handleUpdateShoe: (data: Shoe) => Promise<void>
+  // handleAddShoe: (form: EditShoeFormData ) => void
   
 }
 
 const EditShoeForm = (props: EditShoeFormProps) : JSX.Element => {
   const {state} = useLocation()
-  console.log('state', state)
-  console.log('props', props)
-  // const {user, handleUpdateShoe} = props
-  const [form, setForm] = useState<EditShoeFormData>({
-    style: state.style,
-    photo: state.photo,
-    info: state.info,
-    // added this 
-    id: state.id,
-  })
+  // const [form, setForm] = useState<EditShoeFormData>({
+    const [form, setForm] = useState(state)
+
+    console.log('this is state on edit forms', state)
+    
+  //   ({
+  //   style: state.style,
+
+  //   info: state.info,
+  //   // added this 
+  //   id: state.id,
+  // })
   
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setForm({...form, [event.target.name]: event.target.value})
@@ -52,7 +55,7 @@ const EditShoeForm = (props: EditShoeFormProps) : JSX.Element => {
         value={form.style}
       />
     </div>
-      <div>
+      {/* <div>
       <label htmlFor="photo-input">Photo</label>
       <input
         onChange={handleChange}
@@ -63,7 +66,7 @@ const EditShoeForm = (props: EditShoeFormProps) : JSX.Element => {
         placeholder="Photo"
         value={form.photo}
       />
-      </div>
+      </div> */}
       <div>
       <label htmlFor="info-input">Info</label>
       <input

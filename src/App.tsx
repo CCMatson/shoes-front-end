@@ -63,17 +63,14 @@ function App(): JSX.Element {
     fetchShoes()
   }, [])
 
-  // const handleAddShoe = async (shoeData: NewShoeFormData , photo: File | null): Promise<void> => {
     const handleAddShoe = async (shoeData: NewShoeFormData): Promise<void> => {
     const newShoe = await shoeService.create(shoeData)
-    // const newShoePhoto = await shoeService.addPicture(newShoe, photo)
     setShoes([newShoe, ...shoes])
     navigate('/profiles')
   }
 
   const handleUpdateShoe = async (shoeData: EditShoeFormData) => {
     const updateShoe = await shoeService.update(shoeData)
-    // added today, with the TAs. They said this was a 'brute force' sloppy way to do it though.
     const updatedAllShoesData = await shoeService.index()
     setShoes(updatedAllShoesData)
 

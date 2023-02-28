@@ -3,7 +3,7 @@
 export interface NewShoeFormData {
   // id: number;
   style: string;
-  photo: string;
+  // photo: string;
   info: string;
 }
 
