@@ -120,7 +120,7 @@ function App(): JSX.Element {
         <Route path="/shoes"
           element={
             <ProtectedRoute user={user}>
-              element={<ShoesList shoes={shoes} user={user} handleDeleteShoe={handleDeleteShoe} />}
+              element={<ShoesList user={user} shoes={shoes} handleDeleteShoe={handleDeleteShoe} />}
             </ProtectedRoute>
           }
         />

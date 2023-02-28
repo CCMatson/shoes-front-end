@@ -6,7 +6,7 @@ import styles from './ShoeCard.module.css'
 
 interface ShoeCardProps {
   // shoes: Shoe[],
-  user: User;
+  user: User | null;
   handleDeleteShoe: (id: number) => void
   shoe: Shoe;
 }
@@ -16,7 +16,7 @@ interface ShoeCardProps {
 
 
 const ShoeCard = (props: ShoeCardProps): JSX.Element => {
-  const { shoe } = props
+  const { shoe, user } = props
   console.log('shoeCard props', props)
 
   if (!shoe) return <p>Loading...</p>
@@ -25,14 +25,11 @@ const ShoeCard = (props: ShoeCardProps): JSX.Element => {
         <>
           <div className={styles.shoeCard} key={shoe.style}>
             <div className={styles.shoeText}>
-              <div>Shoe Card:</div>
-              <div>Style: {shoe.style}</div>
-              <div>Info: {shoe.info}</div>
+              <h1>These are my favorite shoes:</h1>
+              <div>The style is {shoe.style}</div>
+              <div>Shoe info: {shoe.info}</div>
             </div>
-
-
-
-            {shoe.profileId === props.user.id &&
+            {shoe.profileId === user?.id &&
               <div className={styles.buttonContainer}>
                 <Link to={`/shoes/${shoe.id}/edit`} state={shoe} ><button className={styles.button}>Edit Shoe</button></Link>
                 <button className={styles.button} role="button" onClick={() => props.handleDeleteShoe(shoe.id)}>Delete Shoe</button>

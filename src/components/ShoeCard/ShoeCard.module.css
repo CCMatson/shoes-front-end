@@ -14,18 +14,23 @@
   height: 500px;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
-  text-align: center;
+  justify-content: center;
   margin: 10px;
   padding: 24px;
   font-size: 24px; 
   background-color: #dee2ff;
 }
 
+.shoeCard div {
+  display: flex;
+  
+}
+
 
 .shoeText {
 font-size: 24px;
 color: black;
+display: flex;
 
 }
 

@@ -4,14 +4,14 @@ import ShoeCard from "../ShoeCard/ShoeCard";
 
 interface ShoeProps {
   shoes: Shoe[];
-  user: User;
+  user: User | null;
   handleDeleteShoe: (id: number) => Promise<void>
 
 }
 
 
 const ShoesList = (props: ShoeProps) => {
-  const { shoes } = props
+  const { shoes, user } = props
   console.log('shoesList props', props)
   // console.log('shoes', shoes)
 
@@ -23,7 +23,7 @@ const ShoesList = (props: ShoeProps) => {
         <div>
           {shoes.map((shoe: Shoe) => {
             return (
-              <ShoeCard shoe={shoe} user={props.user} handleDeleteShoe={props.handleDeleteShoe} key={shoe.style} />
+              <ShoeCard shoe={shoe} user={user} handleDeleteShoe={props.handleDeleteShoe} key={shoe.style} />
             )
           }
           )}
