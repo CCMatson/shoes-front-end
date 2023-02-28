@@ -17,7 +17,7 @@ interface ShoeCardProps {
 
 const ShoeCard = (props: ShoeCardProps): JSX.Element => {
   const { shoe, user } = props
-  console.log('shoeCard props', props)
+  // console.log('shoeCard props', props)
 
   if (!shoe) return <p>Loading...</p>
   return (

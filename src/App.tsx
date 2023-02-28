@@ -83,7 +83,8 @@ function App(): JSX.Element {
   }
 
   const handleDeleteShoe = async (id: number): Promise<void> => {
-    const deletedShoe = await shoeService.delete(id)
+    await shoeService.delete(id)
+    // const deletedShoe = await shoeService.delete(id)
     setShoes(shoes.filter(shoe => shoe.id !== id))
     navigate('/shoes')
   }

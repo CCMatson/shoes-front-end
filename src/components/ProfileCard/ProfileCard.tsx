@@ -21,7 +21,7 @@ const ProfileCard = (props: ProfileCardProps): JSX.Element => {
     <article>
       <img src={profilePic} alt={`${profile.name}'s avatar`} />
       <h1 className={styles.h1}>{profile.name}</h1>
-      <Link to={`/shoes`} ><button className={styles.button}>Shoe List</button></Link>
+      <Link to={`/shoes`} ><button className={styles.button}>View the Collection</button></Link>
     </article>
 
   )
