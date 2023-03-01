@@ -6,6 +6,7 @@
 html,
 body {
   margin: 0;
+  
   background-color: var(--background);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -18,7 +19,7 @@ body {
   font-family: 'Cormorant Garamond', serif;
   font-family: 'Proza Libre', sans-serif;
   background-color: #feeafa;
-  padding-top: 24px;
+  /* padding-top: 24px; */
   font-size: 24px;
 }
 
@@ -160,7 +161,6 @@ article::before {
 @media only screen and (min-width: 900px) {
   .list {
     grid-template-columns: repeat(2, 1fr);
-
   }
 }
 
@@ -176,13 +176,29 @@ article::before {
   }
 }
 
+
+/* @media (max-width: 800px) {
+  .shoelist {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .shoelist div {
+    display: flex;
+
+  }
+  } */
+
+
 nav {
   top: 0;
-  z-index: 1;
+  /* z-index: 1; */
+  margin: 0;
   width: 100%;
   height: 80px;
   display: flex;
-  position: fixed;
+  /* position: fixed; */
   padding: 12px 20px;
   align-items: center;
   background: white;
