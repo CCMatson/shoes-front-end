@@ -13,8 +13,7 @@ const ShoesList = (props: ShoeProps) => {
 
   if (!shoes) return <p>Loading...</p>
   return (
-    <>
-      <section>
+      <section className="shoelist">
         <h1> Welcome to the Shoe Gallery:</h1>
         <h2>Browse the collection, add new shoes, or edit or delete items you have added.</h2>
         <div>
@@ -26,7 +25,6 @@ const ShoesList = (props: ShoeProps) => {
           )}
         </div>
       </section>
-    </>
   )
 }
 

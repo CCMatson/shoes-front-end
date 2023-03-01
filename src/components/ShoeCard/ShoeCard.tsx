@@ -25,7 +25,7 @@ const ShoeCard = (props: ShoeCardProps): JSX.Element => {
       <>
         <div className={styles.shoeCard} key={shoe.style}>
           <div className={styles.shoeText}>
-            <h1>- Favorite Shoes -</h1>
+            <h1>Favorite Shoes</h1>
             <div>The style is {shoe.style}.</div>
             <div>Shoe info: {shoe.info}</div>
           </div>

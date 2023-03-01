@@ -42,12 +42,12 @@ flex-direction: column;
 padding: 50px;
 }
 
-.container button {
+/* .container button {
   background-color: black;
   color: white;
   font-size: 24px;
 
-}
+} */
 
 .buttonContainer {
   display: flex;
@@ -67,7 +67,7 @@ padding: 50px;
   color: #36395A;
   cursor: pointer;
   display: inline-flex;
-  height: 48px;
+  height: 30px;
   justify-content: center;
   line-height: 1;
   list-style: none;
