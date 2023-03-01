@@ -5,13 +5,12 @@
   width: 30vh;
   height: 40vh;
   display: flex;
-  flex-wrap: wrap;
   flex-direction: column;
   margin: 10px;
   padding: 24px;
   font-size: 24px; 
   background-color: #dee2ff;
-}
+  }
 
 .shoeCard div {
   font-size: 20px; 
@@ -24,6 +23,7 @@
 }
 
 
+
 .shoeText {
 font-size: 20px;
 color: black;
@@ -33,6 +33,7 @@ color: black;
 .buttonContainer {
   padding-top: 40px;
 }
+
 
 
 /* CSS */
