@@ -18,6 +18,7 @@ const NavBar = (props: NavBarProps): JSX.Element => {
       {user ?
         <ul>
           <div>Welcome, {user.name}</div>
+          <li><NavLink to="/"><img src="https://i.imgur.com/uSgCzyu.png" alt="" /></NavLink></li>
           <li><NavLink to="/shoes">Shoes</NavLink></li>
           <li><NavLink to="/shoes/new">New Shoes</NavLink></li>
           <li><NavLink to="/profiles">Profiles</NavLink></li>
