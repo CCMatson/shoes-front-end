@@ -14,7 +14,7 @@
   height: 500px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   margin: 10px;
   padding: 24px;
   font-size: 24px; 
@@ -23,11 +23,12 @@
 
 .shoeCard div {
   display: flex;
-  font-size: 24px; 
+  font-size: 20px; 
 }
 
 .shoeCard h1 {
   font-size: 24px;
+  font-weight: 600;
 }
 
 

@@ -1,9 +1,9 @@
 # Shoe Collection 
-## An app to share your favorite shoes with friends
+
 
 [Click this link to view the app](https://shoe-collector.netlify.app/) 
 
-#### Shoe Collection is a decoupled PERN stack application. The front-end is written in React and Typescript 
+#### Shoe Collection is an app to share your favorite shoes with friends. Shoe Collection is a decoupled PERN stack application with JWT token-based authentication.
 
 [Click this link to visit the back-end repo](https://github.com/CCMatson/shoes-back-end)
 
@@ -14,8 +14,14 @@
 * Node.js
 * JWT token-based authentication
 * PostgreSQL with Bit.io
-* Netlify
-* Fly.io
+* Netlify for front-end deployment
+* Fly.io for back-end deployment
 
-#### attributions:
-<a href="https://www.flaticon.com/free-icons/shoes" title="shoes icons">Shoes favicon created by Freepik - Flaticon</a>
+## Ice Box
+* Photo uploads as files
+* Ratings
+
+
+#### Credits:
+<a href="https://www.flaticon.com/free-icons/shoe" title="shoe icons">Shoe icons created by Freepik - Flaticon</a>
+<a href="https://www.flaticon.com/free-icons/sneakers" title="sneakers icons">Sneakers icons created by Freepik - Flaticon</a>

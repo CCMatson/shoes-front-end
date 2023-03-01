@@ -42,7 +42,7 @@ const EditShoeForm = (props: EditShoeFormProps) : JSX.Element => {
     <main className={styles.container}>
     <form autoComplete="off" onSubmit={handleSubmit} className={styles.form}>
     <h1>Edit Shoe Form</h1>
-    <h2>Make changes on the form below and then click the button to save</h2>
+    <h2>Make changes on the form below and click the button to save</h2>
     <div>
       <label htmlFor="style-input">Style</label>
       <input
@@ -80,7 +80,7 @@ const EditShoeForm = (props: EditShoeFormProps) : JSX.Element => {
       />
       </div>
       
-      <button type="submit">SUBMIT</button> 
+      <button type="submit">SAVE CHANGES</button> 
     
     </form>
   </main>

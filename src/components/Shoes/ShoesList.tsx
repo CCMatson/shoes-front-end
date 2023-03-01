@@ -6,9 +6,7 @@ interface ShoeProps {
   shoes: Shoe[];
   user: User | null;
   handleDeleteShoe: (id: number) => Promise<void>
-
 }
-
 
 const ShoesList = (props: ShoeProps) => {
   const { shoes, user } = props

@@ -31,7 +31,7 @@ const NewShoeForm = (props: NewShoeFormProps): JSX.Element => {
     <main className={styles.container}>
       <form autoComplete="off" onSubmit={handleSubmit} className={styles.form}>
       <h1>Add a shoe with this form: </h1>
-      <h2>Make changes on the form below and then click the button to save</h2>
+      <h2>Write the style and shoe information on the form below and then click the button to save</h2>
     <div>
         <label htmlFor="style-input">Style</label>
         <input
@@ -67,7 +67,7 @@ const NewShoeForm = (props: NewShoeFormProps): JSX.Element => {
           id="photo-upload"
           value={form.photo}
         /> */}
-        <button type="submit">SUBMIT</button>
+        <button type="submit">SAVE NEW SHOES TO THE COLLECTION</button>
       </form>
     </main>
   );
