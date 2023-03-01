@@ -59,7 +59,7 @@ function App(): JSX.Element {
         console.log(error)
       }
     }
-    // if (user) fetchShoes()
+    if (user) fetchShoes()
     fetchShoes()
   }, [])
 
