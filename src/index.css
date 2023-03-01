@@ -6,16 +6,6 @@
 html,
 body {
   margin: 0;
-  
-  background-color: var(--background);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  --primary: #F2B138;
-  --secondary: #6574d0;
-  --outline: #ffffff;
-  --background: #f2f4f8;
-  --border: rgb(220, 220, 220);
-  --card-background: rgb(255, 255, 255);
   font-family: 'Cormorant Garamond', serif;
   font-family: 'Proza Libre', sans-serif;
   background-color: #feeafa;
@@ -23,15 +13,15 @@ body {
   font-size: 24px;
 }
 
-main {
+/* main {
   margin-top: 80px;
   min-height: calc(100vh - 80px);
-}
+} */
 
 h1,
 h2,
 h3 {
-  margin: 8px 0px 16px 0px;
+  /* margin: 8px 0px 16px 0px; */
   font-family: 'Cormorant Garamond', serif;
 }
 
@@ -68,7 +58,7 @@ h5 {
 p {
   margin: 0;
   opacity: .4;
-  width: 100%;
+  /* width: 100%; */
   font-size: 16px;
   line-height: 28px;
   text-align: justify;

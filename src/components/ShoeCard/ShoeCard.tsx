@@ -20,16 +20,19 @@ const ShoeCard = (props: ShoeCardProps): JSX.Element => {
       <>
         <div className={styles.shoeCard} key={shoe.style}>
           <div className={styles.shoeText}>
-            <h1>Favorite Shoes</h1>
+          <h1>Favorite Shoes</h1>
             <div>Shoe Style : {shoe.style}.</div>
             <div>Info : {shoe.info}</div>
           </div>
-          
           {shoe.profileId === user?.id &&
-            <div>
-              <img src="https://i.imgur.com/wJJs04D.png" alt="" />
+            <div className={styles.buttonContainer}>
+              <img src="https://i.imgur.com/wJJs04D.png" alt="shoe" />
               <div>{user.name}, you can edit or delete this shoe</div>
-              <Link to={`/shoes/${shoe.id}/edit`} state={shoe} ><button className={styles.button}>Edit Shoe</button></Link>
+              <button className={styles.button}>
+                <Link to={`/shoes/${shoe.id}/edit`} state={shoe} >
+                  Edit Shoe
+                </Link>
+              </button>
               <button className={styles.button} role="button" onClick={() => props.handleDeleteShoe(shoe.id)}>Delete Shoe</button>
             </div>}
         </div>
