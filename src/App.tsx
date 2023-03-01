@@ -38,7 +38,6 @@ function App(): JSX.Element {
   const [shoes, setShoes] = useState<Shoe[]>([])
 
   useEffect((): void => {
-
     const fetchProfiles = async (): Promise<void> => {
       try {
         const profileData: Profile[] = await profileService.getAllProfiles()
@@ -60,10 +59,9 @@ function App(): JSX.Element {
       }
     }
     if (user) fetchShoes()
-    // fetchShoes()
-  }, [])
+  }, [user])
 
-    const handleAddShoe = async (shoeData: NewShoeFormData): Promise<void> => {
+  const handleAddShoe = async (shoeData: NewShoeFormData): Promise<void> => {
     const newShoe = await shoeService.create(shoeData)
     setShoes([newShoe, ...shoes])
     navigate('/profiles')
@@ -73,18 +71,11 @@ function App(): JSX.Element {
     const updateShoe = await shoeService.update(shoeData)
     const updatedAllShoesData = await shoeService.index()
     setShoes(updatedAllShoesData)
-
-    //this might be a prefered way, but I couldn't get it to work : 
-
-    // const updatedShoeData = shoes.filter(shoe => shoe.id === shoeData.id ? updateShoe : shoe)
-    // setShoes(updatedShoeData)
-    // setShoes(shoes.filter(shoe => shoe.id === shoeData.id ? updateShoe : shoe))
     navigate('/profiles')
   }
 
   const handleDeleteShoe = async (id: number): Promise<void> => {
     await shoeService.delete(id)
-    // const deletedShoe = await shoeService.delete(id)
     setShoes(shoes.filter(shoe => shoe.id !== id))
     navigate('/shoes')
   }
@@ -107,10 +98,6 @@ function App(): JSX.Element {
           path="/"
           element={<Landing user={user} />}
         />
-        {/* <Route 
-        path="/shoes" 
-        element={<ShoesList shoes={shoes} user={user}/>}
-        /> */}
         <Route path="/shoes/new"
           element={
             <ProtectedRoute user={user}>

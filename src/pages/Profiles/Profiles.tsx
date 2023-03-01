@@ -7,7 +7,6 @@ import ProfileCard from '../../components/ProfileCard/ProfileCard'
 
 interface ProfilesProps {
   profiles: Profile[];
-  // handleVote: (formData: VoteManagerFormData) => void;
 }
 
 const Profiles = (props: ProfilesProps): JSX.Element => {

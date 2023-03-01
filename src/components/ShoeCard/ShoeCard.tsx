@@ -5,19 +5,14 @@ import styles from './ShoeCard.module.css'
 
 
 interface ShoeCardProps {
-  // shoes: Shoe[],
   user: User | null;
   handleDeleteShoe: (id: number) => void
   shoe: Shoe;
 }
-// interface shoe extends ShoeCardProps{
-
-// }
 
 
 const ShoeCard = (props: ShoeCardProps): JSX.Element => {
   const { shoe, user } = props
-  // console.log('shoeCard props', props)
 
   if (!shoe) return <p>Loading...</p>
   return (

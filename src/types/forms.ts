@@ -1,9 +1,7 @@
 /* ---------==== custom forms ====--------- */
 
 export interface NewShoeFormData {
-  // id: number;
   style: string;
-  // photo: string;
   info: string;
 }
 

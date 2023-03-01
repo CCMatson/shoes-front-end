@@ -19,7 +19,6 @@ export interface Profile {
   id: number;
   createdAt: string;
   updatedAt: string;
-  //not sure about this
 }
 
 export interface User {

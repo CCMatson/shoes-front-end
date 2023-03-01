@@ -2,7 +2,6 @@ import { useState } from "react"
 import { useLocation } from "react-router";
 import styles from './EditShoe.module.css'
 
-// import { EditShoeFormData } from "../../types/forms";
 import { User, Shoe } from "../../types/models";
 
 interface EditShoeFormProps {
