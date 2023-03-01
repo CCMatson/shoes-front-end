@@ -9,19 +9,18 @@ body {
   font-family: 'Cormorant Garamond', serif;
   font-family: 'Proza Libre', sans-serif;
   background-color: #feeafa;
-  /* padding-top: 24px; */
   font-size: 24px;
+  background-color: #feeafa;
 }
 
-/* main {
+main {
   margin-top: 80px;
   min-height: calc(100vh - 80px);
-} */
+}
 
 h1,
 h2,
 h3 {
-  /* margin: 8px 0px 16px 0px; */
   font-family: 'Cormorant Garamond', serif;
 }
 
