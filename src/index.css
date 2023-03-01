@@ -173,10 +173,8 @@ article::before {
     flex-direction: column;
     justify-content: center;
   }
-
   .shoelist div {
     display: flex;
-
   }
   } */
 
@@ -212,14 +210,4 @@ nav ul {
 nav li {
   margin-left: 35px;
   text-align: right;
-}
-
-@media only screen and (max-width: 414px) {
-  nav ul {
-    padding-left: 0px;
-  }
-
-  nav li {
-    font-size: 15px;
-  }
 }
