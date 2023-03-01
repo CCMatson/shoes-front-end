@@ -1,5 +1,3 @@
-
-
 * {
   box-sizing: border-box;
 }
@@ -18,10 +16,10 @@ body {
   --border: rgb(220, 220, 220);
   --card-background: rgb(255, 255, 255);
   font-family: 'Cormorant Garamond', serif;
-font-family: 'Proza Libre', sans-serif;
-background-color: #feeafa;
-padding-top: 24px;
-font-size: 24px;
+  font-family: 'Proza Libre', sans-serif;
+  background-color: #feeafa;
+  padding-top: 24px;
+  font-size: 24px;
 }
 
 main {
@@ -118,12 +116,18 @@ article * {
   z-index: 0;
 }
 
-section div{
+section div {
   display: flex;
   flex-wrap: wrap;
 }
 
+form {
+  font-size: 24px;
+}
 
+form button {
+  height: 24px;
+}
 
 section img {
   width: 30px;
@@ -140,7 +144,7 @@ article::before {
   left: 0;
   z-index: 0;
   width: 100%;
-  height: 77px;  
+  height: 77px;
   background-color: #dee2ff;
 
 }
@@ -157,6 +161,7 @@ article::before {
 @media only screen and (min-width: 900px) {
   .list {
     grid-template-columns: repeat(2, 1fr);
+
   }
 }
 

@@ -3,3 +3,9 @@
   align-items: center;
   flex-direction: column;
 }
+
+.icons {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+}

@@ -22,22 +22,21 @@ const ShoeCard = (props: ShoeCardProps): JSX.Element => {
   if (!shoe) return <p>Loading...</p>
   return (
     <>
-        <>
-          <div className={styles.shoeCard} key={shoe.style}>
-            <div className={styles.shoeText}>
-              <h1>My Favorite Shoes</h1>
-              <div>The style is {shoe.style}</div>
-              <div>Shoe info: {shoe.info}</div>
-            </div>
-            {shoe.profileId === user?.id &&
-              <div className={styles.buttonContainer}>
-                <Link to={`/shoes/${shoe.id}/edit`} state={shoe} ><button className={styles.button}>Edit Shoe</button></Link>
-                <button className={styles.button} role="button" onClick={() => props.handleDeleteShoe(shoe.id)}>Delete Shoe</button>
-              </div>}
+      <>
+        <div className={styles.shoeCard} key={shoe.style}>
+          <div className={styles.shoeText}>
+            <h1>My Favorite Shoes</h1>
+            <div>The style is {shoe.style}</div>
+            <div>Shoe info: {shoe.info}</div>
           </div>
-        </>
-        {/* )} */}
-      {/* </main> */}
+          {shoe.profileId === user?.id &&
+            <div className={styles.buttonContainer}>
+              <div>{user.name}, you can edit or delete this shoe</div>
+              <Link to={`/shoes/${shoe.id}/edit`} state={shoe} ><button className={styles.button}>Edit Shoe</button></Link>
+              <button className={styles.button} role="button" onClick={() => props.handleDeleteShoe(shoe.id)}>Delete Shoe</button>
+            </div>}
+        </div>
+      </>
     </>
   );
 }

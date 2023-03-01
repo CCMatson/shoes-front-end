@@ -1,10 +1,11 @@
-.container {
+/* .container {
   border: black 2px solid;
   background-color: #8e9aaf;;
   display: flex;
   flex-wrap: wrap;
   width: 100%;
-}
+  background-color: yellow;
+} */
 
 .shoeCard {
   border: black 2px solid;
@@ -37,6 +38,7 @@ font-size: 24px;
 color: black;
 display: flex;
 flex-direction: column;
+padding: 50px;
 }
 
 .container button {

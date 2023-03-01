@@ -10,13 +10,11 @@ interface ShoeProps {
 
 const ShoesList = (props: ShoeProps) => {
   const { shoes, user } = props
-  console.log('shoesList props', props)
-  // console.log('shoes', shoes)
-
+  if (!shoes) return <p>Loading...</p>
   return (
     <>
       <section>
-        <h1> Welcome to the Shoe List:</h1>
+        <h1> Welcome to the Shoe Gallery:</h1>
         <h2>Browse the collection, add new shoes, or edit or delete items you have added.</h2>
         <div>
           {shoes.map((shoe: Shoe) => {
@@ -26,7 +24,6 @@ const ShoesList = (props: ShoeProps) => {
           }
           )}
         </div>
-
       </section>
     </>
   )

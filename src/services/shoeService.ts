@@ -48,7 +48,6 @@ const create = async (shoeData: NewShoeFormData) => {
   }
 
   const update = async (shoeData: EditShoeFormData ) : Promise<Shoe> => {
-      console.log(shoeData)
     try{
       const res = await fetch(`${BASE_URL}/${shoeData.id}`, {
           method: 'PUT',
