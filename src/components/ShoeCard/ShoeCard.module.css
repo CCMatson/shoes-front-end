@@ -46,16 +46,16 @@ color: black;
   box-sizing: border-box;
   color: #36395A;
   cursor: pointer;
-  display: inline-flex;
+  /* display: inline-flex; */
   height: 30px;
-  justify-content: center;
+  /* justify-content: center; */
   line-height: 1;
   list-style: none;
   overflow: hidden;
-  padding-left: 16px;
-  padding-right: 16px;
+  /* padding-left: 16px;
+  padding-right: 16px; */
   position: relative;
-  text-align: left;
+  /* text-align: left; */
   text-decoration: none;
   transition: box-shadow .15s,transform .15s;
   user-select: none;
