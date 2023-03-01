@@ -4,7 +4,7 @@
 
 ![Landing Page](https://i.imgur.com/LYRAhkS.png)
 
-#### Shoe Collection is an app to share your favorite shoes with friends. Shoe Collection is a decoupled PERN stack application with JWT token-based authentication.
+#### Shoe Collection is an app to share your favorite shoes with friends. This is a decoupled PERN stack application with JWT token-based authentication. Users can create, edit, and delete shoes to the collection.
 
 [Click this link to visit the back-end repo](https://github.com/CCMatson/shoes-back-end)
 

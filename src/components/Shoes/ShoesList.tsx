@@ -1,6 +1,8 @@
 // types
 import { Shoe, User } from '../../types/models';
 import ShoeCard from "../ShoeCard/ShoeCard";
+import styles from './ShoeList.module.css'
+
 
 interface ShoeProps {
   shoes: Shoe[];
@@ -13,16 +15,17 @@ const ShoesList = (props: ShoeProps) => {
 
   if (!shoes) return <p>Loading...</p>
   return (
-      <section className="shoelist">
+      <section className={styles.container}>
         <h1> Welcome to the Shoe Gallery:</h1>
         <h2>Browse the collection, add new shoes, or edit or delete items you have added.</h2>
-        <div>
-          {shoes.map((shoe: Shoe) => {
+        <div className={styles.cards}>
+        {shoes.map((shoe: Shoe) => {
             return (
               <ShoeCard shoe={shoe} user={user} handleDeleteShoe={props.handleDeleteShoe} key={shoe.style} />
             )
           }
           )}
+
         </div>
       </section>
   )

@@ -115,7 +115,7 @@ function App(): JSX.Element {
         <Route path='/shoes/:id/edit'
           element={
             <ProtectedRoute user={user}>
-              element={<EditShoeForm user={user} handleUpdateShoe={handleUpdateShoe} />}
+              {<EditShoeForm user={user} handleUpdateShoe={handleUpdateShoe} />}
             </ProtectedRoute>
           }
         />

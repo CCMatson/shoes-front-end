@@ -1,13 +1,12 @@
 
 .shoeCard {
   border: black 2px solid;
-  background-color: #f5ebe0;
   border-radius: 10px;
-  width: 20%;
-  height: 500px;
+  width: 30vh;
+  height: 40vh;
   display: flex;
+  flex-wrap: wrap;
   flex-direction: column;
-  justify-content: space-around;
   margin: 10px;
   padding: 24px;
   font-size: 24px; 
@@ -15,7 +14,6 @@
 }
 
 .shoeCard div {
-  display: flex;
   font-size: 20px; 
 }
 
@@ -27,17 +25,13 @@
 
 
 .shoeText {
-font-size: 24px;
+font-size: 20px;
 color: black;
-display: flex;
-flex-direction: column;
-padding: 50px;
 }
 
 
 .buttonContainer {
-  display: flex;
-  justify-content: space-around;
+  padding-top: 40px;
 }
 
 
@@ -70,6 +64,7 @@ padding: 50px;
   white-space: nowrap;
   will-change: box-shadow,transform;
   font-size: 18px;
+  margin: 5px;
 }
 
 
