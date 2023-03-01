@@ -25,7 +25,7 @@ const EditShoeForm = (props: EditShoeFormProps): JSX.Element => {
   return (
     <>
       <main className={styles.container}>
-      <div><img src="https://i.imgur.com/ACAgjTN.png" alt="" /></div>
+      <div className={styles.image}><img src="https://i.imgur.com/ACAgjTN.png" alt="" /></div>
         <form autoComplete="off" onSubmit={handleSubmit} className={styles.form}>
           <h1>Edit Shoe Form</h1>
           <h2>Make changes on the form below and click the button to save</h2>

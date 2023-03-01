@@ -1,6 +1,6 @@
 
 .shoeCard {
-  border: black 2px solid;
+  border: black .05px solid;
   border-radius: 10px;
   width: 30vh;
   height: 40vh;

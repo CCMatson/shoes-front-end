@@ -68,4 +68,52 @@
       will-change: box-shadow,transform;
       font-size: 18px;
     }
+
+    .image  {
+      height: auto;
+      object-fit: cover;
+    }
+  
+
+    @media (max-width: 900px) {
+      main {
+        display: flex;
+        justify-content: center;
+      }
+    
+    
+      .image {
+        display: none;
+      }
+
+      .form {
+        display: flex;
+        flex-direction: column;
+  
+      }
+      
+      .form h1 {
+        font-size: 24px;
+        font-family: 'Cormorant Garamond', serif;
+        font-weight: 500;
+      }
+    
+      .form h2 {
+        font-size: 24px;
+      }
+      
+      .form label {
+      font-size: 24px;
+      padding: 2px;
+      
+      }
+      
+      .form input {
+        font-size: 24px;
+        padding: 2px;
+      }
+      
+    }
+
+  
   
