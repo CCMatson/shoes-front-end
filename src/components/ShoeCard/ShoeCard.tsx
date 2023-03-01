@@ -24,8 +24,9 @@ const ShoeCard = (props: ShoeCardProps): JSX.Element => {
             <div>Shoe Style : {shoe.style}.</div>
             <div>Info : {shoe.info}</div>
           </div>
+          
           {shoe.profileId === user?.id &&
-            <div className={styles.buttonContainer}>
+            <div>
               <img src="https://i.imgur.com/wJJs04D.png" alt="" />
               <div>{user.name}, you can edit or delete this shoe</div>
               <Link to={`/shoes/${shoe.id}/edit`} state={shoe} ><button className={styles.button}>Edit Shoe</button></Link>
