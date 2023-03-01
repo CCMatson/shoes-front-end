@@ -1,8 +1,6 @@
 # Shoe Collection 
 
-[Click this link to view the app](https://shoe-collector.netlify.app/) 
-
-<a href="https://imgur.com/LYRAhkS"><img src="https://i.imgur.com/LYRAhkS.png" title="source: imgur.com" /></a>
+## [Click this link to view the app](https://shoe-collector.netlify.app/) 
 
 ![Landing Page](https://i.imgur.com/LYRAhkS.png)
 
