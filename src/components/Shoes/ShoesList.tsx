@@ -10,6 +10,7 @@ interface ShoeProps {
 
 const ShoesList = (props: ShoeProps) => {
   const { shoes, user } = props
+
   if (!shoes) return <p>Loading...</p>
   return (
     <>

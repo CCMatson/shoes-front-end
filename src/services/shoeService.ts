@@ -19,7 +19,6 @@ async function index(): Promise<Shoe[]> {
 }
 
 const create = async (shoeData: NewShoeFormData) => {
-  console.log('create function shoeData', shoeData)
   try {
     const res = await fetch(BASE_URL, {
       method: 'POST',

@@ -2,7 +2,9 @@
 
 [Click this link to view the app](https://shoe-collector.netlify.app/) 
 
-[Imgur](https://i.imgur.com/LYRAhkS.png)
+<a href="https://imgur.com/LYRAhkS"><img src="https://i.imgur.com/LYRAhkS.png" title="source: imgur.com" /></a>
+
+![Landing Page](https://i.imgur.com/LYRAhkS.png)
 
 #### Shoe Collection is an app to share your favorite shoes with friends. Shoe Collection is a decoupled PERN stack application with JWT token-based authentication.
 
