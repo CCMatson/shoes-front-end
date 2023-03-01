@@ -5,7 +5,7 @@ import styles from './ProfileCard.module.css'
 
 // types
 import { Profile } from '../../types/models'
-import ShoesList from '../Shoes/ShoesList';
+// import ShoesList from '../Shoes/ShoesList';
 
 interface ProfileCardProps {
   profile: Profile;
