@@ -66,11 +66,11 @@ const create = async (shoeData: NewShoeFormData) => {
     async function addShoePhoto (
       photoData: FormData,
       // shoeData: NewShoeFormData,
-      id : number,
+      shoeId : number,
       ): Promise<string> {
         try {
         console.log(photoData, 'photoData')
-        const res = await fetch(`${BASE_URL}/${id}/add-photo`, {
+        const res = await fetch(`${BASE_URL}/${shoeId}/add-photo`, {
           method: 'PUT',
           headers: {
             'Authorization': `Bearer ${tokenService.getToken}`

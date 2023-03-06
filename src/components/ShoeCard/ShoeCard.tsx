@@ -1,6 +1,7 @@
 import { Shoe , User } from "../../types/models";
 import { Link } from "react-router-dom";
 import styles from './ShoeCard.module.css'
+import defaultPic from '/sneakers.png'
 
 
 
@@ -16,7 +17,7 @@ const ShoeCard = (props : ShoeCardProps): JSX.Element => {
   const {shoes} = props
   console.log('shoeCard props' , props)
   // console.log('shoe photo', shoes.photo)
-
+  
   if(!shoes.length) return <p>Loading...</p>
   return (
     <>

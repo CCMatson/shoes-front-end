@@ -59,8 +59,8 @@ function App(): JSX.Element {
         console.log(error)
       }
     }
-    fetchShoes()
-  }, [])
+    if (user) fetchShoes()
+  }, [user])
 
 
     const handleAddShoe = async (shoeData: NewShoeFormData, PhotoFormData: PhotoFormData): Promise<void> => {

@@ -16,13 +16,7 @@ const EditShoeForm = (props: EditShoeFormProps) : JSX.Element => {
   console.log('state', state)
   console.log('props', props)
   // const {user, handleUpdateShoe} = props
-  const [form, setForm] = useState<EditShoeFormData>({
-    style: state.style,
-    photo: state.photo,
-    info: state.info,
-    // added this 
-    id: state.id,
-  })
+  const [form, setForm] = useState(state)
   
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setForm({...form, [event.target.name]: event.target.value})
@@ -51,7 +45,7 @@ const EditShoeForm = (props: EditShoeFormProps) : JSX.Element => {
         placeholder="Style"
         value={form.style}
       />
-    </div>
+    {/* </div>
       <div>
       <label htmlFor="photo-input">Photo</label>
       <input
@@ -62,7 +56,7 @@ const EditShoeForm = (props: EditShoeFormProps) : JSX.Element => {
         id="photo-input"
         placeholder="Photo"
         value={form.photo}
-      />
+      /> */}
       </div>
       <div>
       <label htmlFor="info-input">Info</label>
