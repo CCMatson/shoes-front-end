@@ -23,6 +23,7 @@ const ShoeCard = (props: ShoeCardProps): JSX.Element => {
           <h1>Favorite Shoes</h1>
             <div>Shoe Style : {shoe.style}.</div>
             <div>Info : {shoe.info}</div>
+            <div>Photo : {shoe.photo}</div>
           </div>
           {shoe.profileId === user?.id &&
             <div className={styles.buttonContainer}>

@@ -8,11 +8,18 @@ interface NewShoeFormProps {
   handleAddShoe: (form: NewShoeFormData) => void
 }
 
+interface ShoeFormData {
+  style: string,
+  info: string,
+  photo: string,
+}
+
 const NewShoeForm = (props: NewShoeFormProps): JSX.Element => {
-  const { user, handleAddShoe } = props
+  // const { user, handleAddShoe } = props
   const [form, setForm] = useState<NewShoeFormData>({
     style: '',
     info: '',
+    photo: '',
   })
 
 
@@ -53,6 +60,18 @@ const NewShoeForm = (props: NewShoeFormProps): JSX.Element => {
             id="info-input"
             placeholder="Info"
             value={form.info}
+          />
+        </div>
+        <div>
+          <label htmlFor="url-input">Photo URL</label>
+          <input
+            onChange={handleChange}
+            required
+            type="text"
+            name="url"
+            id="url-input"
+            placeholder="URL"
+            value={form.photo}
           />
         </div>
         <button type="submit">SAVE NEW SHOES TO THE COLLECTION</button>

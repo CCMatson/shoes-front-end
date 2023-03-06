@@ -5,7 +5,7 @@ export interface Shoe {
   id: number;
   style: string;
   profileId: number;
-  // photo: string;
+  photo?: string;
   info: string;
   createdAt: string;
   updatedAt: string;

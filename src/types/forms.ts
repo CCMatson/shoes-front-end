@@ -3,6 +3,7 @@
 export interface NewShoeFormData {
   style: string;
   info: string;
+  photo: string;
 }
 
 export interface EditShoeFormData extends NewShoeFormData {

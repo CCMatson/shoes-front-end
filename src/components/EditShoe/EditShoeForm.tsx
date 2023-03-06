@@ -3,10 +3,11 @@ import { useLocation } from "react-router";
 import styles from './EditShoe.module.css'
 
 import { User, Shoe } from "../../types/models";
+import { EditShoeFormData, NewShoeFormData } from "../../types/forms";
 
 interface EditShoeFormProps {
   user: User | null;
-  handleUpdateShoe: (data: Shoe) => Promise<void>
+  handleUpdateShoe: (data: EditShoeFormData) => Promise<void>
 }
 
 const EditShoeForm = (props: EditShoeFormProps): JSX.Element => {
@@ -51,6 +52,18 @@ const EditShoeForm = (props: EditShoeFormProps): JSX.Element => {
               id="info-input"
               placeholder="Info"
               value={form.info}
+            />
+          </div>
+          <div>
+            <label htmlFor="url-input">URL</label>
+            <input
+              onChange={handleChange}
+              required
+              type="text"
+              name="url"
+              id="url-input"
+              placeholder="URL"
+              value={form.photo}
             />
           </div>
           <button type="submit">SAVE CHANGES</button>
