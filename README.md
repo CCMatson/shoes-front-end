@@ -1,5 +1,6 @@
 # Shoe Collection 
 
+## Sample log in, use email: "cb@gmail.com" and password: "cb"'
 ## [Click this link to view the app](https://shoe-collector.netlify.app/) 
 
 ![Landing Page](https://i.imgur.com/LYRAhkS.png)
@@ -19,9 +20,9 @@
 * Fly.io for back-end deployment
 
 ## Ice Box
-* Photo uploads as files
-* Shoe ratings
-* Responsive design
+[ ] Photo uploads as files
+[ ] Shoe ratings
+[ ] Responsive design
 
 
 ## Credits
